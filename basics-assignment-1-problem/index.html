@@ -25,15 +25,16 @@
     <!-- 4) Output a random number (0 to 1) -->
     <p>Favorite Number: RANDOM NUMBER BETWEEN 0 AND 1:</p>
     <p v-html="getRandomNumber()"></p>
-    
+
+    <div>
       <!-- 5) Display some image you found via Google -->
       <img v-bind:src="getImageLink()" width="100%" />
     </div>
 
     <!-- 6) Prepopulate the input field with your name via the "value" attribute -->
-    <input type="text" v-model="name"/>
+    <input type="text" v-bind:value="name">
 
   </section>
 </body>
 
-</html>
+</htmfl>
