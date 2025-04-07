@@ -2,7 +2,8 @@ Vue.createApp({
     data() {
         return {
             userInput: '',
-            isParagraphVisible: true
+            isParagraphVisible: true,
+            inputBackgroundColor: ''
         }
     },
     methods: {
