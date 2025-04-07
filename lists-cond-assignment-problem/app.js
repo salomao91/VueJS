@@ -14,5 +14,10 @@ Vue.createApp({
         btnToggle() {
            this.isBtnListVisible = !this.isBtnListVisible
         }
+    },
+    computed: {
+        btnCaption() {
+            return this.isBtnListVisible ? 'Hide List' : 'Show List'
+        }
     }
 }).mount("#assignment");
