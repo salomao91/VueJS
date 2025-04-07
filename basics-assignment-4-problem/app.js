@@ -1,13 +1,12 @@
 Vue.createApp({
     data() {
         return {
-            isParagraphVisible: true,
-            userInputColor: ''
+            userInput: '',
+            isParagraphVisible: true
         }
     },
     methods: {
         btnToggle() {
-            console.log("toggle");
             this.isParagraphVisible = !this.isParagraphVisible;
         }
     }
