@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +10,7 @@
   <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
   <script src="app.js" defer></script>
 </head>
+
 <body>
   <header>
     <h1>Monster Slayer</h1>
@@ -43,8 +45,15 @@
     </section>
     <section id="log" class="container">
       <h2>Battle Log</h2>
-      <ul></ul>
+      <ul>
+        <li v-for="logMessage in logMessages">
+          <span :class="{'log--player': logMessage.actionBy === 'player', 'log--monster': logMessage.actionBy === 'monster'}"
+          >{{ logMessage.actionBy === 'player' ? 'Player' : 'Monster' }}</span>
+          <span v-if="logMessage.actionType === 'heal' "> heals himself for <span class="log--heal">{{ logMessage.actionValue }}</span></span>
+          <span v-else="logMessage.actionType === 'attack' "> attacks and deals <span class="log--damage">{{ logMessage.actionValue }}</span></span>
+      </ul>
     </section>
   </div>
 </body>
+
 </html>
