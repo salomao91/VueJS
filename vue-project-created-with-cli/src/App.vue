@@ -1,11 +1,20 @@
 <template>
   <section>
     <header>
-        <h1>My Friends</h1>
+      <h1>My Friends</h1>
     </header>
     <ul>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
+      <friend-contact
+        name="Mark Smith"
+        phone-number="123 456 5768"
+        email-adress="john@localhost.com"
+      ></friend-contact>
+
+      <friend-contact
+        name="Julie Roberts"
+        phone-number="321 123 4345"
+        email-adress="julie@localhost.com"
+      ></friend-contact>
     </ul>
   </section>
 </template>
@@ -14,20 +23,6 @@
 export default {
   data() {
     return {
-      friends: [
-        {
-          id: "manuel",
-          name: "John Smith",
-          phone: "123 456 5768",
-          email: "john@localhost.com",
-        },
-        {
-          id: "julie",
-          name: "Julie Roberts",
-          phone: "321 123 4345",
-          email: "julie@localhost.com",
-        },
-      ],
     };
   },
 };
