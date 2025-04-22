@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ name }} {{ friendIsFavorite ? "(Favorite)" : "" }}</h2>
+    <h2>{{ name }} {{ isFavorite ? "(Favorite)" : "" }}</h2>
     <button @click="toggleDetails">
       {{ detailsAreVisible ? "Hide" : "Show" }} Details
     </button>
@@ -16,6 +16,10 @@
 export default {
   
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     name: {
       type: String,
       required: true
@@ -24,7 +28,7 @@ export default {
       type: String,
       required: true
     },
-    emailAdresss: {
+    emailAdress: {
       type: String,
       required: true
     },
@@ -36,8 +40,7 @@ export default {
   },
   data() {
     return {
-      detailsAreVisible: false,
-      friendIsFavorite: this.isFavorite,
+      detailsAreVisible: false
     };
   },
   methods: {
@@ -45,7 +48,8 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible;
     },
     toggleFavorite() {
-      this.friendIsFavorite = !this.friendIsFavorite;
+      // it emits our own custom event to which we can listen from inside the parent component (App.vue in this case)
+      this.$emit('toggle-favorite', this.id);
     },
   },
 };
