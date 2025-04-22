@@ -14,7 +14,29 @@
 
 <script>
 export default {
-  props: ["name", "phoneNumber", "emailAdress", "isFavorite"],
+  // props: ["name", "phoneNumber", "emailAdress", "isFavorite"],
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    phoneNumber: {
+      type: String,
+      required: true
+    },
+    emailAdresss: {
+      type: String,
+      required: true
+    },
+    isFavorite: {
+      type: String,
+      required: false,
+      default: '0',
+      validator: function(value) {
+        return value === '1' || value === '0';
+      }
+    }
+  },
   data() {
     return {
       detailsAreVisible: false,

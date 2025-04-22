@@ -8,14 +8,12 @@
         name="Mark Smith"
         phone-number="123 456 5768"
         email-adress="john@localhost.com"
-        is-favorite="1"
       ></friend-contact>
 
       <friend-contact
         name="Julie Roberts"
         phone-number="321 123 4345"
         email-adress="julie@localhost.com"
-        is-favorite="0"
       ></friend-contact>
     </ul>
   </section>
