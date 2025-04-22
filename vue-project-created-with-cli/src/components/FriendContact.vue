@@ -14,7 +14,8 @@
 
 <script>
 export default {
-  
+
+  // it receives data from parent component (App.vue)
   props: {
     id: {
       type: String,
@@ -38,9 +39,25 @@ export default {
       default: false
     }
   },
+
+  // it indicates the name of the custom event, which sends data from this child => parent component (App.vue)
+  emits: ['toggle-favorite'],
+
+// detailed way
+  // emits: {
+  //   'toggle-favorite': function(id) {
+  //     if (id) {
+  //       return true;
+  //     } else {
+  //       console.warn('Id is missing!');
+  //       return false;
+  //     }
+  //   }
+  // },
+
   data() {
     return {
-      detailsAreVisible: false
+      detailsAreVisible: false,
     };
   },
   methods: {
@@ -49,7 +66,7 @@ export default {
     },
     toggleFavorite() {
       // it emits our own custom event to which we can listen from inside the parent component (App.vue in this case)
-      this.$emit('toggle-favorite', this.id);
+      this.$emit("toggle-favorite", this.id);
     },
   },
 };
