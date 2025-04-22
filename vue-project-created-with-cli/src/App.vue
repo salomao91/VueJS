@@ -5,15 +5,12 @@
     </header>
     <ul>
       <friend-contact
-        name="Mark Smith"
-        phone-number="123 456 5768"
-        email-adress="john@localhost.com"
-      ></friend-contact>
-
-      <friend-contact
-        name="Julie Roberts"
-        phone-number="321 123 4345"
-        email-adress="julie@localhost.com"
+        v-for="friend in friends"
+        :key="friend.id"
+        :name="friend.name"
+        :phone-number="friend.phone"
+        :email-adress="friend.email"
+        :is-favorite="true"
       ></friend-contact>
     </ul>
   </section>
@@ -23,13 +20,27 @@
 export default {
   data() {
     return {
+      friends: [
+        {
+          id: "manuel",
+          name: "John Smith",
+          phone: "123 456 5768",
+          email: "john@localhost.com",
+        },
+        {
+          id: "julie",
+          name: "Julie Roberts",
+          phone: "321 123 4345",
+          email: "julie@localhost.com",
+        },
+      ],
     };
   },
 };
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
 * {
   box-sizing: border-box;
 }
