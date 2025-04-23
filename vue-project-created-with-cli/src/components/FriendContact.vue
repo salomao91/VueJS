@@ -9,6 +9,7 @@
       <li><strong>Phone:</strong>{{ phoneNumber }}</li>
       <li><strong>Email:</strong>{{ emailAdress }}</li>
     </ul>
+    <button @click="deleteFriend">Delete</button>
   </li>
 </template>
 
@@ -41,7 +42,7 @@ export default {
   },
 
   // it indicates the name of the custom event, which sends data from this child => parent component (App.vue)
-  emits: ['toggle-favorite'],
+  emits: ['toggle-favorite', 'delete'],
 
 // detailed way
   // emits: {
@@ -68,6 +69,9 @@ export default {
       // it emits our own custom event to which we can listen from inside the parent component (App.vue in this case)
       this.$emit("toggle-favorite", this.id);
     },
+    deleteFriend() {
+      this.$emit('delete', this.id);
+    }
   },
 };
 </script>
