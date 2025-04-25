@@ -1,12 +1,15 @@
 <template>
   <div>
-    <h2>Name: John</h2>
-    <h3>Age: 30</h3>
+    <h2>Name: {{ userName }}</h2>
+    <h3>Age: {{ userAge }}</h3>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+    props: ["userName", "userAge"]
+};
+
 </script>
 
 <style>

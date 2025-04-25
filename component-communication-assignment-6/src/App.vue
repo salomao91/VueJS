@@ -2,12 +2,14 @@
   <h2>App vue</h2>
 
   <user-data @add-user="addUserAppVue"></user-data>
-  <active-user></active-user>
+  <active-user
+  :userName="this.userNameAppVue"
+  :userAge="this.userAgeAppVue"></active-user>
 </template>
 
 <script>
 export default {
-  date() {
+  data() {
     return {
       userNameAppVue: '',
       userAgeAppVue: ''
@@ -15,8 +17,8 @@ export default {
   },
   methods: {
     addUserAppVue(userName, userAge) {
-      this.userNameAppVue = userName,
-      this.userAge = userAge
+      this.userNameAppVue = userName;
+      this.userAgeAppVue = userAge
     }
   }
 };
