@@ -3,23 +3,30 @@
 
   <user-data @add-user="addUserAppVue"></user-data>
   <active-user
-  :userName="this.userNameAppVue"
-  :userAge="this.userAgeAppVue"></active-user>
+    v-for="user in users"
+    :key="user.id"
+    :id="user.id"
+    :userName="user.userNameAppVue"
+    :userAge="user.userAgeAppVue"
+  ></active-user>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      userNameAppVue: '',
-      userAgeAppVue: ''
-    }
+      users: []
+    };
   },
   methods: {
     addUserAppVue(userName, userAge) {
-      this.userNameAppVue = userName;
-      this.userAgeAppVue = userAge
-    }
-  }
+      const newUsers = {
+        id: new Date().toISOString(),
+        userNameAppVue: userName,
+        userAgeAppVue: userAge
+      };
+      this.users.push(newUsers);
+    },
+  },
 };
 </script>
