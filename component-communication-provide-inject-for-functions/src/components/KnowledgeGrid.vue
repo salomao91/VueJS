@@ -13,7 +13,8 @@
 
 <script>
 export default {
-  props: ['topics'],
+  // provide/inject needs a parent/child relationship
+  inject: ['topics'],
   emits: ['select-topic']
 };
 </script>
