@@ -23,7 +23,7 @@ export default {
       const newUsers = {
         id: new Date().toISOString(),
         userNameAppVue: userName,
-        userAgeAppVue: userAge
+        userAgeAppVue: +userAge   // the + signal converts the value received as a String to a Number type
       };
       this.users.push(newUsers);
     },

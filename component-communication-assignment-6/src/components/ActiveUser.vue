@@ -7,7 +7,16 @@
 
 <script>
 export default {
-    props: ["id", "userName", "userAge"]
+    props: {
+        userName: {
+            type: String,
+            required: true
+        },
+        userAge: {
+            type: Number,
+            required: true
+        }
+    }
 };
 
 </script>
