@@ -2,12 +2,13 @@
   <section>
     <base-card>
 
+      <!-- sintaxe = v-slot:name or shorter #name -->
       <template v-slot:header>
         <h3>{{ fullName }}</h3>
         <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
       </template>
-
-      <template v-slot:default>
+      
+      <template #default>
         <p>{{ infoText }}</p>
       </template>
 

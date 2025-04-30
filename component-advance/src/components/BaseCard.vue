@@ -1,14 +1,22 @@
 <template>
   <div>
-    <header>
-        <slot name="header"></slot>
+    <header v-if="$slots.header">
+      <slot name="header">
+        <h2>Default content</h2>
+      </slot>
     </header>
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    //if the component who use this slot as a template does not pass a content to it, it is undefined
+    // then we can make some logic accessing its data.
+    console.log(this.$slots.header);
+  },
+};
 </script>
 
 <style scoped>
