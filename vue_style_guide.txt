@@ -1,0 +1,5 @@
+go to the Vue js website and click on vue style guide
+
+to see some official vue recomendations about naming Components and so on...
+
+https://vuejs.org/style-guide/
