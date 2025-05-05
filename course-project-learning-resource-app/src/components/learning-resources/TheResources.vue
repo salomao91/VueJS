@@ -44,6 +44,7 @@ export default {
     return {
       //all child components will have access to it
       resources: this.storedResources,
+      addResource: this.addResource
     };
   },
   computed: {
@@ -58,6 +59,19 @@ export default {
     setSelectedTab(tab) {
       this.selectedTab = tab;
     },
+    addResource(title, description, url) {
+        const newResource = {
+            id: new Date().toISOString(),
+            title: title,
+            description: description,
+            link: url
+        };
+
+        //unshift push(add) an element but in the beginig of the array
+        this.storedResources.unshift(newResource);
+        
+        this.selectedTab = 'stored-resources';
+    }
   },
 };
 </script>
