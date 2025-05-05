@@ -15,10 +15,10 @@ import StoredResources from './StoredResources.vue';
 import AddResource from './AddResource.vue';
 
 export default {
-  components: { 
+  components: {
     StoredResources,
-    AddResource
-    },
+    AddResource,
+  },
   data() {
     return {
       selectedTab: 'stored-resources',
@@ -36,7 +36,12 @@ export default {
           link: 'https://google.com',
         },
       ],
-    };      
+    };
+  },
+  provide() {
+    return {
+      //all child components will have access to it
+      resources: this.storedResources,
     };
   },
   methods: {
