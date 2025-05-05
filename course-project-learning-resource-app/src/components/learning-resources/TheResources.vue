@@ -9,7 +9,9 @@
       >Add Resource</base-button
     >
   </base-card>
-  <component :is="selectedTab"></component>
+  <keep-alive>
+    <component :is="selectedTab"></component>
+  </keep-alive>
 </template>
 
 <script>
@@ -69,7 +71,7 @@ export default {
 
         //unshift push(add) an element but in the beginig of the array
         this.storedResources.unshift(newResource);
-        
+
         this.selectedTab = 'stored-resources';
     }
   },
