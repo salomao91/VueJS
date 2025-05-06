@@ -46,7 +46,8 @@ export default {
     return {
       //all child components will have access to it
       resources: this.storedResources,
-      addResource: this.addResource
+      addResource: this.addResource,
+      deleteResource: this.deleteResource
     };
   },
   computed: {
@@ -73,6 +74,10 @@ export default {
         this.storedResources.unshift(newResource);
 
         this.selectedTab = 'stored-resources';
+    },
+    deleteResource(idResource) {
+        const resourceIndex = this.storedResources.findIndex(resource => resource.id === idResource);
+        this.storedResources.splice(resourceIndex, 1);
     }
   },
 };
