@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div @click="$emit('closeBaseDialog')"></div>
   <dialog open>
     <header>
       <slot name="header">
@@ -10,7 +10,10 @@
       <slot></slot>
     </section>
     <menu>
-      <slot name="actions"></slot>
+      <slot name="actions">
+        <!-- if a component who use this BaseDialog doesn't provide a content for this slot, this fallback content it's rendered -->
+        <base-button @click="$emit('closeBaseDialog')">Close</base-button>
+      </slot>
     </menu>
   </dialog>
 </template>
@@ -23,6 +26,7 @@ export default {
       required: false,
     },
   },
+  emits: ['closeBaseDialog'],
 };
 </script>
 
