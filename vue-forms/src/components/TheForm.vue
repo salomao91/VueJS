@@ -20,30 +20,66 @@
     <div class="form-control">
       <h2>What are you interested in?</h2>
       <div>
-        <input id="interest-news" name="interest" type="checkbox" />
+        <input
+          id="interest-news"
+          name="interest"
+          type="checkbox"
+          value="news"
+          v-model="interestCheckBox"
+        />
         <label for="interest-news">News</label>
       </div>
       <div>
-        <input id="interest-tutorials" name="interest" type="checkbox" />
+        <input
+          id="interest-tutorials"
+          name="interest"
+          type="checkbox"
+          value="tutorials"
+          v-model="interestCheckBox"
+        />
         <label for="interest-tutorials">Tutorials</label>
       </div>
       <div>
-        <input id="interest-nothing" name="interest" type="checkbox" />
+        <input
+          id="interest-nothing"
+          name="interest"
+          type="checkbox"
+          value="nothing"
+          v-model="interestCheckBox"
+        />
         <label for="interest-nothing">Nothing</label>
       </div>
     </div>
     <div class="form-control">
       <h2>How do you learn?</h2>
       <div>
-        <input id="how-video" name="how" type="radio" />
+        <input
+          id="how-video"
+          name="how"
+          type="radio"
+          value="video"
+          v-model="howRadio"
+        />
         <label for="how-video">Video Courses</label>
       </div>
       <div>
-        <input id="how-blogs" name="how" type="radio" />
+        <input
+          id="how-blogs"
+          name="how"
+          type="radio"
+          value="blogs"
+          v-model="howRadio"
+        />
         <label for="how-blogs">Blogs</label>
       </div>
       <div>
-        <input id="how-other" name="how" type="radio" />
+        <input
+          id="how-other"
+          name="how"
+          type="radio"
+          value="other"
+          v-model="howRadio"
+        />
         <label for="how-other">Other</label>
       </div>
     </div>
@@ -60,6 +96,8 @@ export default {
       userName: '',
       userAge: null,
       userRefer: 'wom',
+      interestCheckBox: [],
+      howRadio: null,
     };
   },
   methods: {
@@ -71,6 +109,12 @@ export default {
       this.userAge = null;
       console.log('User refer: ' + this.userRefer);
       this.userRefer = 'wom';
+      console.log('Checkboxes');
+      console.log(this.interestCheckBox);
+      console.log('Radio buttons');
+      console.log(this.howRadio);
+      this.interestCheckBox = [];
+      this.howRadio = null;
     },
   },
 };
