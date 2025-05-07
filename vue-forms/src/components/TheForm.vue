@@ -6,7 +6,8 @@
     </div>
     <div class="form-control">
       <label for="age">Your Age (Years)</label>
-      <input id="age" name="age" type="number" />
+      <!-- by defualt, JavaScript send this field as a string, but using v-model will automatically convert it to number type -->
+      <input id="age" name="age" type="number" v-model="userAge" />
     </div>
     <div class="form-control">
       <label for="referrer">How did you hear about us?</label>
@@ -56,16 +57,20 @@
 export default {
   data() {
     return {
-      userName: ''
-    }
+      userName: '',
+      userAge: null,
+    };
   },
   methods: {
     submitForm() {
       console.log('Username: ' + this.userName);
       this.userName = '';
-    }
-  }
-}
+      console.log('User age:');
+      console.log(this.userAge);
+      this.userAge = null;
+    },
+  },
+};
 </script>
 
 <style scoped>
