@@ -83,6 +83,12 @@
         <label for="how-other">Other</label>
       </div>
     </div>
+
+  <div clas="form-controle">
+    <input type="checkbox" id="confirm-terms" name="confirm-terms" v-model="isConfirmTerms" />
+    <label for="confirm-terms">Agree to terms of use ?</label>
+  </div>
+
     <div>
       <button>Save Data</button>
     </div>
@@ -98,6 +104,7 @@ export default {
       userRefer: 'wom',
       interestCheckBox: [],
       howRadio: null,
+      isConfirmTerms: false
     };
   },
   methods: {
@@ -115,6 +122,9 @@ export default {
       console.log(this.howRadio);
       this.interestCheckBox = [];
       this.howRadio = null;
+      console.log('Confirm?');
+      console.log(this.isConfirmTerms);
+      this.isConfirmTerms = false;
     },
   },
 };
