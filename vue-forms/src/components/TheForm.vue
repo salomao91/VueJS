@@ -86,7 +86,7 @@
     </div>
 
     <div class="form-control">
-      <rating-control></rating-control>
+      <rating-control v-model="rating"></rating-control>
     </div>
 
   <div clas="form-control">
@@ -114,7 +114,8 @@ export default {
       interestCheckBox: [],
       howRadio: null,
       isConfirmTerms: false,
-      userNameValidity: 'pending'
+      userNameValidity: 'pending',
+      rating: null
     };
   },
   methods: {
@@ -135,6 +136,9 @@ export default {
       console.log('Confirm?');
       console.log(this.isConfirmTerms);
       this.isConfirmTerms = false;
+      console.log('Rating');
+      console.log(this.rating);
+      this.rating = null;
     },
     validateInput() {
         if (this.userName.trim() === '') {
