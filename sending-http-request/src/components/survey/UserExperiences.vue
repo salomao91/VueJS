@@ -8,8 +8,9 @@
         >
       </div>
       <p v-if="isLoading">Loading...</p>
+      <p v-else-if="!isLoading && error">{{ error }}</p>
       <p v-else-if="!isLoading && (!results || results.length === 0)">No stored experiences found. Add some servey results first.</p>
-      <ul v-else-if="!isLoading && results && results.length > 0">
+      <ul v-else>
         <survey-result
           v-for="result in results"
           :key="result.id"
@@ -32,6 +33,7 @@ export default {
     return {
       results: [],
       isLoading: false,
+      error: null
     };
   },
   methods: {
@@ -50,6 +52,7 @@ export default {
         // .then(function (data) {
         .then( (data) => {
           this.isLoading = false;
+          this.error = null;
           const dbResults = [];
           for (const id in data) {
             dbResults.push({
@@ -59,6 +62,11 @@ export default {
             });
           }
           this.results = dbResults;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.isLoading = false;
+          this.error = 'Failed to fetch from the server - please try again later.';
         });
     },
   },
