@@ -10,7 +10,9 @@ const router = createRouter({
     routes: [
         { path: '/teams', component: TeamList }, // my-domain.com/teams => TeamList
         { path: '/users', component: UserList },
-    ]
+    ],
+    // we can override the router-link-active default class name
+    linkActiveClass: 'active'
 });
 
 const app = createApp(App);

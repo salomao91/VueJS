@@ -51,7 +51,10 @@ a {
 }
 
 a:hover,
-a:active {
+a:active,
+/* by default vuejs add this router-link-active class name and I changed it in main.js in the router config to active. */
+/* a.router-link-active { */
+a.active {
   color: #f1a80a;
   border-color: #f1a80a;
   background-color: #1a037e;
