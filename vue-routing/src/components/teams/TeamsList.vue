@@ -3,8 +3,9 @@
     <teams-item
       v-for="team in teams"
       :key="team.id"
+      :id="team.id"
       :name="team.name"
-      :member-count="team.members.length"
+      :member-count="team.membersId.length"
     ></teams-item>
   </ul>
 </template>
