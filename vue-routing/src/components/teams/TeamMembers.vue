@@ -9,6 +9,7 @@
         :role="member.role"
       ></user-item>
     </ul>
+    <router-link to="/teams/t2">Go to team 2</router-link>
   </section>
 </template>
 
@@ -26,20 +27,33 @@ export default {
       members: []
     };
   },
+  methods: {
+    getTeamMembers(route) {
+      console.log(route);
+      const teamId = route.params.teamId;
+      const selectedTeam = this.teams.find((team) => team.id === teamId);
+      const membersId = selectedTeam.membersId;
+      const selectedMembers = [];
+      for (const memberId of membersId) {
+        const selectedUser = this.users.find((user) => user.id === memberId);
+        selectedMembers.push(selectedUser);
+      }
+      this.members = selectedMembers;
+      this.teamName = selectedTeam.name;
+    },
+  },
   created() {
-    // this component is accessed though router, then we have acess to this.$route different properties.
-    console.log(this.$route);
-    const teamId = this.$route.params.teamId;
-    const selectedTeam = this.teams.find(team => team.id === teamId);
-    const membersId = selectedTeam.membersId;
-    const selectedMembers = [];
-    for (const memberId of membersId) {
-      const selectedUser = this.users.find(user => user.id === memberId);
-      selectedMembers.push(selectedUser);
-    }
-    this.members = selectedMembers;
-    this.teamName = selectedTeam.name;
-  }
+    // this component is accessed through router, then we have access to this.$route different properties.
+    this.getTeamMembers(this.$route);
+  },
+  //by default vue cache the previous component data instead of destroy and re-create it,
+  //so, created() is not called when using dynamic router.
+  //but we can watch for changes in the $route, cause it always saves the latest data.
+  watch: {
+    $route(newRoute) {
+      this.getTeamMembers(newRoute);
+    },
+  },
 };
 </script>
 
