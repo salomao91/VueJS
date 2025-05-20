@@ -11,9 +11,12 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', redirect: '/teams' },
-        { path: '/teams', component: TeamList }, // my-domain.com/teams => TeamList
+        { path: '/teams', component: TeamList,
+            // nested routes - useful feature to load different parts maybe nested in different components based on different URLs and paths.
+            children: [
+                { path: ':teamId', component:TeamMembers, props: true },    //  /teams/t1
+            ] }, // my-domain.com/teams => TeamList
         { path: '/users', component: UserList },
-        { path: '/teams/:teamId', component:TeamMembers, props: true },
         // props: true => it tells the vue router that the dynamic parameters should be passed into this component as props rather than just on the $route property.
         // teamId is passed as a prop into this component when it's loaded.
         { path: '/:notFound(.*)', component: NotFound }
