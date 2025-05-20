@@ -14,10 +14,12 @@ export default {
       // return '/teams/' + this.id;
       return {
         // it crentralizes the route values in only one place: the main.js.
-        name: 'team-members', params: { teamId: this.id }
-      }
-    }
-  }
+        name: 'team-members',
+        params: { teamId: this.id },
+        query: { sort: 'asc' },
+      };
+    },
+  },
 };
 </script>
 

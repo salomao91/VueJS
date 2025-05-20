@@ -45,6 +45,7 @@ export default {
   created() {
     // this component is accessed through router, then we have access to this.$route different properties.
      this.getTeamMembers(this.teamId);
+     console.log(this.$route.query);
   },
   //by default vue cache the previous component data instead of destroy and re-create it,
   //so, created() is not called when using dynamic router.
