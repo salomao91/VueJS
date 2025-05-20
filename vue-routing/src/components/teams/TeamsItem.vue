@@ -11,7 +11,11 @@ export default {
   props: ['id', 'name', 'memberCount'],
   computed: {
     teamMembersLink() {
-      return '/teams/' + this.id;
+      // return '/teams/' + this.id;
+      return {
+        // it crentralizes the route values in only one place: the main.js.
+        name: 'team-members', params: { teamId: this.id }
+      }
     }
   }
 };
