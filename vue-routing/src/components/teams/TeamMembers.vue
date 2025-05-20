@@ -18,6 +18,7 @@ import UserItem from '../users/UserItem.vue';
 
 export default {
   inject: ['users', 'teams'],
+  props: ['teamId'],
   components: {
     UserItem
   },
@@ -28,9 +29,8 @@ export default {
     };
   },
   methods: {
-    getTeamMembers(route) {
-      console.log(route);
-      const teamId = route.params.teamId;
+    getTeamMembers(teamId) {
+      console.log(teamId);
       const selectedTeam = this.teams.find((team) => team.id === teamId);
       const membersId = selectedTeam.membersId;
       const selectedMembers = [];
@@ -44,14 +44,14 @@ export default {
   },
   created() {
     // this component is accessed through router, then we have access to this.$route different properties.
-    this.getTeamMembers(this.$route);
+     this.getTeamMembers(this.teamId);
   },
   //by default vue cache the previous component data instead of destroy and re-create it,
   //so, created() is not called when using dynamic router.
   //but we can watch for changes in the $route, cause it always saves the latest data.
   watch: {
-    $route(newRoute) {
-      this.getTeamMembers(newRoute);
+    teamId(newId) {
+      this.getTeamMembers(newId);
     },
   },
 };
