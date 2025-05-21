@@ -65,6 +65,12 @@ router.beforeEach(function(to, from, next) {
     // }
 });
 
+router.afterEach(function(to, from){
+    // useful for logging each user navigation page or sending analytics data
+    console.log('Global afterEach');
+    console.log(to, from);    
+})
+
 const app = createApp(App);
 
 app.use(router);
