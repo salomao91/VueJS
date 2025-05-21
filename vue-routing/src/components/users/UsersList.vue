@@ -19,6 +19,11 @@ export default {
       // this.$router.back();
       // this.$router.forward();
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log('UsersList component beforeEach');
+    console.log(to, from);
+    next();
   }
 };
 </script>
