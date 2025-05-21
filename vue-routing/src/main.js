@@ -30,7 +30,15 @@ const router = createRouter({
         { path: '/:notFound(.*)', component: NotFound }
     ],
     // we can override the router-link-active default class name
-    linkActiveClass: 'active'
+    linkActiveClass: 'active',
+    
+    //it's called by the vue router whenever a page changes.
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {    //if user click to go to the previous page
+            return savedPosition;
+        }
+        return { left: 0, top: 0 };
+    }
 });
 
 const app = createApp(App);
