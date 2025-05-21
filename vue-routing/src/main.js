@@ -41,6 +41,22 @@ const router = createRouter({
     }
 });
 
+//it's called by vue router whenever user navigate from one page to another, before each navigation.
+router.beforeEach(function(to, from, next) {
+    console.log('Global beforeEach');
+    console.log(to, from);
+    next();
+    //it can be useful to allow or cancel the next page navigation if the user is authenticated or not.
+    // next(true);
+    // next(false);
+    // next('/users');
+    // if (to.name === 'team-members') {
+    //     next();
+    // } else {
+    //     next({name: 'team-members', params: { teamId: 't2' } });
+    // }
+});
+
 const app = createApp(App);
 
 app.use(router);
