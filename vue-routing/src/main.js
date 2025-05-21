@@ -23,7 +23,15 @@ const router = createRouter({
         },
         { 
             path: '/users', 
-            components: { default: UserList, footer: UsersFooter} 
+            components: { 
+                default: UserList, 
+                footer: UsersFooter
+            },
+            beforeEnter(to, from, next) {
+                console.log('Users from main beforeEach');
+                console.log(to, from);                
+                next();
+            }
         },
         // props: true => it tells the vue router that the dynamic parameters should be passed into this component as props rather than just on the $route property.
         // teamId is passed as a prop into this component when it's loaded.
@@ -46,7 +54,7 @@ router.beforeEach(function(to, from, next) {
     console.log('Global beforeEach');
     console.log(to, from);
     next();
-    //it can be useful to allow or cancel the next page navigation if the user is authenticated or not.
+    //it can be useful to allow or deny the next page navigation if the user is authenticated or not.
     // next(true);
     // next(false);
     // next('/users');
