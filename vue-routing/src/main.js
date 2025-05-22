@@ -15,7 +15,8 @@ const router = createRouter({
         { path: '/', redirect: '/teams' },
         {
             name: 'teams',
-            path: '/teams', 
+            path: '/teams',
+            meta: { needsAuth: true },
             components: { default: TeamList, footer: TeamsFooter },    // my-domain.com/teams => TeamList
             children: [     // nested routes - useful feature to load different parts maybe nested in different components based on different URLs and paths.
                 { name: 'team-members', path: ':teamId', component: TeamMembers, props: true },    //  /teams/t1
@@ -53,6 +54,9 @@ const router = createRouter({
 router.beforeEach(function(to, from, next) {
     console.log('Global beforeEach');
     console.log(to, from);
+    if (to.meta.needsAuth) {
+        console.log('Needs auth!');
+    }
     next();
     //it can be useful to allow or deny the next page navigation if the user is authenticated or not.
     // next(true);
