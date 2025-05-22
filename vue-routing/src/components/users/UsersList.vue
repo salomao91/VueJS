@@ -35,8 +35,7 @@ export default {
     next();
   },
 
-  // it's called when user wants to leave a page (before the beforeEach and beforeEnter guard methods).
-  // it's useful for when a user send a form data and it was not successfully saved, the page can warn him about it.
+  // it's called (before the beforeEach and beforeEnter guard methods).
   beforeRouteLeave(to, from, next) {
     console.log('UsersList component beforeRouteLeave');
     console.log(to, from);
