@@ -93,6 +93,36 @@ button:active {
   /* transform: translateX(-150px); */
   animation: slide-fade 1s ease-out forwards;
 }
+
+.v-enter-from {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.v-enter-active {
+  /* it tells vue to watch for all css properties that might be animted, like opacity and transform */
+  transition: all 1s ease-out;
+}
+
+.v-enter-to {
+  opacity: 1;
+  transform: translateY(0);  
+}
+
+.v-leave-from {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+.v-leave-active {
+  transition: all 1s ease-in;
+}
+
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
 @keyframes slide-fade {
   /* animation behave and different states */
   0% {
