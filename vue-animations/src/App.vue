@@ -94,6 +94,7 @@ button:active {
   animation: slide-fade 1s ease-out forwards;
 }
 
+/* these css classes v-enter and v-leave are applied to the html element inside the <transition> component wrapper */
 .v-enter-from {
   opacity: 0;
   transform: translateY(-30px);
@@ -123,7 +124,7 @@ button:active {
   transform: translateY(30px);
 }
 
-@keyframes slide-fade {
+@keyframes slide-scale {
   /* animation behave and different states */
   0% {
     transform: translateX(0) scale(1);
