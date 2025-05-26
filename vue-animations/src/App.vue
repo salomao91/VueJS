@@ -90,7 +90,7 @@ button:active {
 }
 
 .animate {
-  /* transform: translateX(-150px); */
+  /* transform: translateX(-150px); */ 
   animation: slide-fade 1s ease-out forwards;
 }
 
@@ -123,6 +123,29 @@ button:active {
   opacity: 0;
   transform: translateY(30px);
 }
+
+
+/* alternative: using the <transition> wrapper component with css animations is also supported */
+
+/* .v-enter-from {
+}
+
+.v-enter-active {
+  animation: slide-scale 1s ease-out;
+}
+
+.v-enter-to {
+}
+
+.v-leave-from {
+}
+
+.v-leave-active {
+  animation: slide-scale 1s ease-out;
+}
+ 
+.v-leave-to {
+} */
 
 @keyframes slide-scale {
   /* animation behave and different states */
