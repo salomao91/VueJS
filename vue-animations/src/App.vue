@@ -4,7 +4,7 @@
     <button @click="animateBlock">Animate</button>
   </div>
   <div class="container">
-    <transition>
+    <transition name="parag">
       <p v-if="isParagraphVisible">This is sometimes visible...</p>
     </transition>
     <button @click="toggleParagraph">Toggle Paragraph</button>
@@ -95,31 +95,31 @@ button:active {
 }
 
 /* these css classes v-enter and v-leave are applied to the html element inside the <transition> component wrapper */
-.v-enter-from {
+.parag-enter-from {
   opacity: 0;
   transform: translateY(-30px);
 }
 
-.v-enter-active {
+.parag-enter-active {
   /* it tells vue to watch for all css properties that might be animted, like opacity and transform */
   transition: all 1s ease-out;
 }
 
-.v-enter-to {
+.parag-enter-to {
   opacity: 1;
   transform: translateY(0);  
 }
 
-.v-leave-from {
+.parag-leave-from {
   opacity: 1;
   transform: translateY(0); 
 }
 
-.v-leave-active {
+.parag-leave-active {
   transition: all 1s ease-in;
 }
 
-.v-leave-to {
+.parag-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
