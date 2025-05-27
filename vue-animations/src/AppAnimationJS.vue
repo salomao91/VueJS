@@ -1,5 +1,5 @@
 <template>
-<h3>Animation using CSS</h3>
+<h3>Animation using Javascript</h3>
   <div class="container">
     <div class="block" :class="{ animate: isAnimatedBlock }"></div>
     <button @click="animateBlock">Animate</button>
@@ -139,38 +139,6 @@ button:active {
 .animate {
   /* transform: translateX(-150px); */ 
   animation: slide-fade 1s ease-out forwards;
-}
-
-/* animation using css classes */
-
-/* these css classes v-enter and v-leave are applied to the html element inside the <transition> component wrapper */
-.parag-enter-from {
-  opacity: 0;
-  transform: translateY(-30px);
-}
-
-.parag-enter-active {
-  /* it tells vue to watch for all css properties that might be animted, like opacity and transform */
-  transition: all 1s ease-out;
-}
-
-.parag-enter-to {
-  opacity: 1;
-  transform: translateY(0);  
-}
-
-.parag-leave-from {
-  opacity: 1;
-  transform: translateY(0); 
-}
-
-.parag-leave-active {
-  transition: all 1s ease-in;
-}
-
-.parag-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
 }
 
 .fade-button-enter-from,
