@@ -70,4 +70,7 @@ li {
     transform: translateX(30px);
 }
 
+.user-list-move {
+    transition: transform 0.8s ease;
+}
 </style>
