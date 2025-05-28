@@ -1,7 +1,7 @@
 <template>
-    <ul>
+    <transition-group tag="ul" name="user-list">
         <li v-for="user in users" :key="user" @click="removeUser(user)">{{ user }}</li>
-    </ul>
+    </transition-group>
     <div>
         <input type="text" ref=userNameInput>
         <button @click="addUser">Add User</button>
@@ -38,4 +38,36 @@ li {
     padding: 1rem;
     text-align: center;
 }
+
+/* add animation */
+.user-list-enter-from {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.user-list-enter-active {
+    transition: all 1s ease-out;     /* apply this to all properties that changes (opacity and transform in this case) */
+}
+
+.user-list-enter-to {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* remove animation */
+.user-list-leave-from {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.user-list-leave-active {
+    /* apply this to all css properties that changes (opacity and transform in this case) */
+    transition: all 1s ease-in;
+}
+
+.user-list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
 </style>
