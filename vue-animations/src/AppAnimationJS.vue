@@ -41,32 +41,54 @@ export default {
       dialogIsVisible: false,
       isAnimatedBlock: false,
       isParagraphVisible: false,
-      isUserVisible: false
+      isUserVisible: false,
+      enterInterval: null,
+      leaveinterval: null
       };
   },
   methods: {
     beforeEnter(element) {
       console.log('beforeEnter()');
       console.log(element);
+      element.style.opacity = 0;
     },
-    beforeLeave(element) {
-      console.log('beforeLeave()');
-      console.log(element);
-    },
-    leave(element) {
-      console.log('leave()');
-      console.log(element);
-    },
-    afterLeave(element) {
-      console.log('afterLeave()');
-      console.log(element);
-    },
-    enter(element) {
+    enter(element, done) {
       console.log('enter');
       console.log(element);
+      let round = 1;
+      const interval = setInterval(function() {
+        element.style.opacity = round * 0.01;
+        round++;
+        if (round > 100) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);   
     },
     afterEnter(element) {
       console.log('afterEnter');
+      console.log(element);
+    },    
+    beforeLeave(element) {
+      console.log('beforeLeave()');
+      console.log(element);
+      element.opacity = 1;
+    },
+    leave(element, done) {
+      console.log('leave()');
+      console.log(element);
+      let round = 1;
+      const interval = setInterval(function() {
+        element.style.opacity = 1 - round * 0.01;
+        round++;
+        if (round > 100) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);      
+    },
+    afterLeave(element) {
+      console.log('afterLeave()');
       console.log(element);
     },
     showUsers() {
