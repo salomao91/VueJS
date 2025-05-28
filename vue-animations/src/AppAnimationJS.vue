@@ -7,6 +7,7 @@
   <div class="container">
     <transition
       name="parag"
+      :css="false"
       @before-enter="beforeEnter"
       @enter="enter"
       @after-enter="afterEnter"
