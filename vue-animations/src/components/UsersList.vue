@@ -63,6 +63,7 @@ li {
 .user-list-leave-active {
     /* apply this to all css properties that changes (opacity and transform in this case) */
     transition: all 1s ease-in;
+    position: absolute;
 }
 
 .user-list-leave-to {
