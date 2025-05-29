@@ -1,6 +1,10 @@
 <template>
 
-<router-view></router-view>
+  <router-view v-slot="slotProps">
+    <transition name="fade-button" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </transition>
+  </router-view>
 
   <h3>Animation lists using "transition group"</h3>
   <div class="container">
