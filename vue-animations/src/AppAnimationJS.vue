@@ -1,9 +1,12 @@
 <template>
-<h3>Animation lists using "transition group"</h3>
-<div class="container">
-  <users-list></users-list>
-</div>
-<h3>Animation using Javascript</h3>
+
+<router-view></router-view>
+
+  <h3>Animation lists using "transition group"</h3>
+  <div class="container">
+    <users-list></users-list>
+  </div>
+  <h3>Animation using Javascript</h3>
   <div class="container">
     <div class="block" :class="{ animate: isAnimatedBlock }"></div>
     <button @click="animateBlock">Animate</button>
