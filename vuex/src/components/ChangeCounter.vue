@@ -1,12 +1,13 @@
 <template>
-    <button @click="addOne">Add 1</button>
+    <button @click="addOne">Add 2</button>
 </template>
 
 <script>
 export default {
     methods: {
         addOne() {
-            this.$store.commit('increment');
+            // never add the state inside a component, instead we only commit it to centralize the logic in the store.
+            this.$store.commit('increase');
         }
     }
 }
