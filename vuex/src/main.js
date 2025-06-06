@@ -9,12 +9,24 @@ const store = createStore({
             counter: 0
         };
     },
+    // synchronous
     mutations: {
         increment(state) {
             state.counter = state.counter + 2;
         },
         increase(state, payload) {
             state.counter = state.counter + payload.value;
+        }
+    },
+    // asynchronous
+    actions: {
+        increment(context) {
+            setTimeout(function() { 
+                context.commit('increment');    // name of the mutation as paremeter
+            }, 2000);
+        },
+        increase(context, payload) {
+            context.commit('increase', payload);
         }
     },
     getters: {

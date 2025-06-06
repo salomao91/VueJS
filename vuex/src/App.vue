@@ -22,10 +22,14 @@ export default {
   },
   methods: {
     addOne() {
+      // calling a mutation
       // this.$store.commit('increase', { value: 10 });
 
-      // an alternative way
-      this.$store.commit({
+      // an alternative way calling a mutation
+      // this.$store.commit({
+
+      // calling an action (asynchronous)
+      this.$store.dispatch({
         type: 'increase',
         value: 10
       });
