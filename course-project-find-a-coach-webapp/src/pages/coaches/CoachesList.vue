@@ -1,6 +1,6 @@
 <template>
   <section>
-    FILER
+    FILTER
   </section>
   <section>
     LIST OF COACHES
