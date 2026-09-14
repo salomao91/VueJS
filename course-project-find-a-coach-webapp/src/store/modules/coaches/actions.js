@@ -1,7 +1,7 @@
 export default {
   registerCoach(context, data) {
     const coachData = {
-      id: 'c3', // it'll get dynamic id later from the server.
+      id: context.rootGetters.userId, // store/index.js
       firstName: data.firstName,
       lastName: data.lastName,
       description: data.description,
