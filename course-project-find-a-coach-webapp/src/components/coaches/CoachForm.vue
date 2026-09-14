@@ -14,7 +14,7 @@
     </div>
     <div class="form-control">
       <label for="rate">Hourly Rate</label>
-      <input type="number" id="rate" v-model="rate.number" />
+      <input type="number" id="rate" v-model.number="rate" />
     </div>
     <div class="form-control">
       <h3>Areas of Expertise</h3>
