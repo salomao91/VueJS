@@ -5,7 +5,7 @@ export default {
       firstName: data.firstName,
       lastName: data.lastName,
       description: data.description,
-      rate: data.rate,
+      hourlyRate: data.rate,
       areas: data.areas,
     };
 
